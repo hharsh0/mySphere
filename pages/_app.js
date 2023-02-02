@@ -9,7 +9,7 @@ import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
 import Router from 'next/router'
 import NProgress from 'nprogress'
-import ProgressBar from 'react-scroll-progress-bar'
+// import ProgressBar from 'react-scroll-progress-bar'
 
 import ScrollTop from '@/components/ScrollTop'
 
@@ -55,7 +55,7 @@ const defaultTheme = {
 export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
-      <ProgressBar bgcolor="#DE1D8D" />
+      {/* <ProgressBar bgcolor="#DE1D8D" /> */}
       <ScrollTop />
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
