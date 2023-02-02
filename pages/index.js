@@ -6,7 +6,6 @@ import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
 import { RoughNotation } from 'react-rough-notation'
 
-import NewsletterForm from '@/components/NewsletterForm'
 
 const MAX_DISPLAY = 3
 
