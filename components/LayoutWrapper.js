@@ -58,8 +58,8 @@ const LayoutWrapper = ({ children }) => {
               ))}
             </div>
             <CommandPalette navigation={navigation} />
-            <ThemeSwitch />
-            <DropMenu />
+            {/* <ThemeSwitch />
+            <DropMenu /> */}
           </div>
         </header>
         <main className="mb-auto">{children}</main>
