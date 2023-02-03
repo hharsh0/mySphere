@@ -2,7 +2,6 @@ import { Fragment, useState } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { motion } from 'framer-motion'
 import classNames from 'classnames'
-import Link from './Link'
 import {
   CodeIcon,
   HomeIcon,
@@ -25,8 +24,10 @@ import {
   EnterIcon,
 } from '@radix-ui/react-icons'
 import useSound from 'use-sound'
+// import Link from './Link'
+import Link from 'next/link'
 
-export default function DropMenu() {
+function DropMenu() {
   const [isOpen, setIsOpen] = useState(false)
   const toggleIcon = () => {
     setIsOpen(!isOpen)
@@ -55,7 +56,6 @@ export default function DropMenu() {
           </motion.button>
         </Menu.Button>
       </div>
-
       <Transition
         as={Fragment}
         enter="transition ease-out duration-100"
@@ -78,7 +78,7 @@ export default function DropMenu() {
             <Menu.Item>
               {({ active }) => (
                 <Link href="/">
-                  <a
+                  <div
                     className={classNames(
                       active
                         ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
@@ -89,14 +89,14 @@ export default function DropMenu() {
                     <div className="flex flex-row">
                       <HomeIcon className="mr-4 mt-0.5" /> Home
                     </div>
-                  </a>
+                  </div>
                 </Link>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
                 <Link href="/blog">
-                  <a
+                  <div
                     className={classNames(
                       active
                         ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
@@ -107,32 +107,14 @@ export default function DropMenu() {
                     <div className="flex flex-row">
                       <Pencil1Icon className="mr-4 mt-0.5" /> Blog
                     </div>
-                  </a>
-                </Link>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <Link href="/snippets">
-                  <a
-                    className={classNames(
-                      active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
-                    )}
-                  >
-                    <div className="flex flex-row">
-                      <CodeIcon className="mr-4 mt-0.5" /> Snippets
-                    </div>
-                  </a>
+                  </div>
                 </Link>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
                 <Link href="/projects">
-                  <a
+                  <div
                     className={classNames(
                       active
                         ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
@@ -143,14 +125,14 @@ export default function DropMenu() {
                     <div className="flex flex-row">
                       <ArchiveIcon className="mr-4 mt-0.5" /> Projects
                     </div>
-                  </a>
+                  </div>
                 </Link>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
                 <Link href="/about">
-                  <a
+                  <div
                     className={classNames(
                       active
                         ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
@@ -161,51 +143,77 @@ export default function DropMenu() {
                     <div className="flex flex-row">
                       <PersonIcon className="mr-4 mt-0.5" /> About
                     </div>
-                  </a>
-                </Link>
-              )}
-            </Menu.Item>
-          </div>
-          <div className="py-1">
-            <Menu.Item>
-              {({ active }) => (
-                <Link href="/contact">
-                  <a
-                    className={classNames(
-                      active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
-                    )}
-                  >
-                    <div className="flex flex-row">
-                      <Link2Icon className="mr-4 mt-0.5" /> Contact
-                    </div>
-                  </a>
+                  </div>
                 </Link>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <Link href="/guestbook">
-                  <a
-                    className={classNames(
-                      active
-                        ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
-                        : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
-                      'block px-4 py-2 text-sm'
-                    )}
-                  >
-                    <div className="flex flex-row">
-                      <ChatBubbleIcon className="mr-4 mt-0.5" /> Guestbook
+                <>
+                  <Link href="">
+                    <div
+                      className={classNames(
+                        active
+                          ? 'cursor-pointer bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
+                          : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
+                        'block cursor-pointer px-4 py-2 text-sm'
+                      )}
+                    >
+                      <div className="flex flex-row">
+                        <>
+                          <EnterIcon />
+                          <div className="ml-4">Sign In</div>
+                        </>
+                      </div>
                     </div>
-                  </a>
-                </Link>
+                  </Link>
+                </>
               )}
             </Menu.Item>
+            <hr className="border-gray-700" />
+            <div className="py-1">
+              <Menu.Item>
+                {({ active }) => (
+                  <Link href="/contact">
+                    <div
+                      className={classNames(
+                        active
+                          ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
+                          : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
+                        'block px-4 py-2 text-sm'
+                      )}
+                    >
+                      <div className="flex flex-row">
+                        <Link2Icon className="mr-4 mt-0.5" /> Contact
+                      </div>
+                    </div>
+                  </Link>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <Link href="/guestbook">
+                    <div
+                      className={classNames(
+                        active
+                          ? 'bg-gray-200 text-gray-700 dark:bg-zinc-700 dark:text-gray-300'
+                          : 'bg-white text-zinc-700 hover:bg-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700',
+                        'block px-4 py-2 text-sm'
+                      )}
+                    >
+                      <div className="flex flex-row">
+                        <ChatBubbleIcon className="mr-4 mt-0.5" /> Guestbook
+                      </div>
+                    </div>
+                  </Link>
+                )}
+              </Menu.Item>
+            </div>
           </div>
         </Menu.Items>
       </Transition>
     </Menu>
   )
 }
+
+export default DropMenu
