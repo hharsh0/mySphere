@@ -57,7 +57,7 @@ export default function DropMenu() {
         </Menu.Button>
       </div>
 
-      <Transition
+      {/* <Transition
         as={Fragment}
         enter="transition ease-out duration-100"
         enterFrom="transform opacity-0 scale-95"
@@ -179,32 +179,7 @@ export default function DropMenu() {
                       )}
                     >
                       <div className="flex flex-row">
-                        {/* {session ? (
-                          <>
-                            <div className="mr-2 flex flex-row items-center">
-                              {session.user?.image ? (
-                                // eslint-disable-next-line @next/next/no-img-element
-                                <img
-                                  className="h-6 w-6 cursor-pointer rounded-full"
-                                  src={session.user.image}
-                                  alt="User Profile Icon"
-                                />
-                              ) : (
-                                ''
-                              )}
-                            </div>
-                            <div className="" onClick={() => signOut()}>
-                              Sign Out
-                            </div>
-                          </>
-                        ) : (
-                          <>
-                            <EnterIcon />
-                            <div className="ml-4" onClick={() => signIn()}>
-                              Sign In
-                            </div>
-                          </>
-                        )} */}
+                        
                       </div>
                     </a>
                   </Link>
@@ -413,7 +388,7 @@ export default function DropMenu() {
             </Menu.Item>
           </div>
         </Menu.Items>
-      </Transition>
+      </Transition> */}
     </Menu>
   )
 }
